@@ -4,7 +4,6 @@ import Snowman from "./Snowman";
 
 const MAX_WRONG = 5;
 
-// maybe render out a Snowman instance in a beforeEach and test off that?
 
 // SMOKE TEST
 describe("basic rendering smoke test", function () {
