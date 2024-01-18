@@ -1,5 +1,5 @@
 import React from "react";
-import { render, fireEvent } from "@testing-library/react";
+import { render, fireEvent, getByText } from "@testing-library/react";
 import Snowman from "./Snowman";
 
 const MAX_WRONG = 5
@@ -38,12 +38,15 @@ describe("Max failed guesses behavior", function () {
     // All buttons are disabled
 
     //TODO: figure out how to test these conditions properly
-    expect(container).toHaveHTMLString("You lose: test") // FIXME:
-    expect(container).toHaveHTMLString("Number wrong: 5") // FIXME:
-    expect(container.querySelector('button[value="q"]')).not.toExist() //FIXME:
+    expect(container.querySelector("#Snowman-lose-msg")).toBeInTheDocument();
+    expect(container.querySelector("#Snowman-num-wrong")).toBeInTheDocument();
+    expect(container.querySelector("#Snowman-num-wrong").innerText)
+      .toEqual('Number wrong: 5');
+    expect(container.querySelector('button[value="q"]')).not.toBeInTheDocument();
   })
 
   // SNAPSHOT -- holds the image of no buttons
+
 })
 
 // TEST each function in snowman
